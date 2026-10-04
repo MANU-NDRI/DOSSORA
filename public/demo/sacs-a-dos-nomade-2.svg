@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9e4dc"/><stop offset="1" stop-color="#E6D3D8"/></linearGradient></defs>
+<rect width="800" height="1000" fill="url(#g)"/>
+<circle cx="640" cy="180" r="120" fill="#C9A45C" opacity=".12"/>
+<ellipse cx="400" cy="900" rx="230" ry="26" fill="#7A1F3D" opacity=".10"/>
+<g transform="translate(-140 -190) scale(1.35)"><path d="M290 430C290 250 510 250 510 430" fill="none" stroke="#2a0d17" stroke-width="22" stroke-linecap="round"/>
+<rect x="180" y="410" width="440" height="330" rx="44" fill="#3B1220"/>
+<path d="M180 470Q400 570 620 470V450Q620 410 580 410H220Q180 410 180 450Z" fill="#2a0d17"/>
+<circle cx="400" cy="548" r="24" fill="#C9A45C"/><circle cx="400" cy="548" r="10" fill="#F8F3EA"/></g>
+<text x="400" y="945" text-anchor="middle" font-family="Georgia,serif" font-size="28" letter-spacing="12" fill="#C9A45C" opacity=".9">DOSSORA</text></svg>

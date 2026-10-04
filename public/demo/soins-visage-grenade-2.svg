@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9e4dc"/><stop offset="1" stop-color="#E6D3D8"/></linearGradient></defs>
+<rect width="800" height="1000" fill="url(#g)"/>
+<circle cx="640" cy="180" r="120" fill="#C9A45C" opacity=".12"/>
+<ellipse cx="400" cy="900" rx="230" ry="26" fill="#7A1F3D" opacity=".10"/>
+<g transform="translate(-140 -190) scale(1.35)"><g transform="rotate(-12 400 520)"><rect x="220" y="410" width="360" height="220" rx="64" fill="#C9A45C"/>
+<rect x="244" y="432" width="312" height="176" rx="48" fill="none" stroke="#C9A45C" stroke-width="5"/>
+<text x="400" y="535" text-anchor="middle" font-family="Georgia,serif" font-size="46" fill="#C9A45C" letter-spacing="8">DOSSORA</text></g>
+<circle cx="600" cy="360" r="26" fill="none" stroke="#C9A45C" stroke-width="4"/><circle cx="650" cy="300" r="14" fill="none" stroke="#C9A45C" stroke-width="4"/><circle cx="560" cy="290" r="9" fill="#C9A45C" opacity=".6"/></g>
+<text x="400" y="945" text-anchor="middle" font-family="Georgia,serif" font-size="28" letter-spacing="12" fill="#C9A45C" opacity=".9">DOSSORA</text></svg>

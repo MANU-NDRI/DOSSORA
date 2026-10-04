@@ -1,0 +1,562 @@
+{
+  "brand": {
+    "slogan": "Elegance within reach",
+    "tagline": "Your style. Your elegance."
+  },
+  "common": {
+    "loading": "Loading…",
+    "retry": "Try again",
+    "close": "Close",
+    "all": "All",
+    "see_all": "See all",
+    "days": "days",
+    "remove": "Remove",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "saved": "Saved",
+    "confirm_delete": "Confirm deletion?",
+    "confirm_logout": "Are you sure you want to log out?",
+    "cancel": "Cancel",
+    "logout_action": "Log out",
+    "prev": "Previous",
+    "next": "Next",
+    "back": "Back"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "new": "New in",
+    "sale": "Sale",
+    "returns": "Returns",
+    "cart": "Cart",
+    "account": "My account",
+    "favorites": "Favorites",
+    "notifications": "Notifications",
+    "language": "Language",
+    "menu": "Menu",
+    "search": "Search",
+    "search_placeholder": "Search a product…",
+    "back_home": "Back to home",
+    "skip": "Skip to content"
+  },
+  "auth": {
+    "login": "Sign in",
+    "register": "Create an account",
+    "email": "Email",
+    "password": "Password",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "phone": "Phone",
+    "confirm_password": "Confirm password",
+    "new_password": "New password",
+    "forgot": "Forgot your password?",
+    "forgot_hint": "Enter your email and we will send you a reset link.",
+    "send_link": "Send link",
+    "reset_sent": "If an account exists for this email, a link has just been sent.",
+    "reset_title": "New password",
+    "reset_invalid": "Invalid or expired link.",
+    "no_account": "No account yet?",
+    "have_account": "Already have an account?",
+    "register_hint": "An account is required to place orders and track your parcels.",
+    "password_hint": "At least 8 characters.",
+    "password_short": "Password must be at least 8 characters.",
+    "password_mismatch": "Passwords do not match.",
+    "password_updated": "Password updated.",
+    "welcome": "Welcome to DOSSORA!",
+    "check_email_title": "Check your email",
+    "check_email_text": "A confirmation message was sent to {email}. Click the link to activate your account, then sign in.",
+    "register_cta": "Create an account",
+    "login_cta": "Sign in",
+    "signup_short": "Sign up"
+  },
+  "geo": {
+    "country": "Country",
+    "city": "City",
+    "select_country": "Select a country",
+    "select_city": "Select a city",
+    "select_country_first": "Select a country first",
+    "consent_title": "Share my location (optional)",
+    "consent_text": "Allow DOSSORA to use your location to make delivery easier.",
+    "use_my_location": "Use my location",
+    "locating": "Locating…",
+    "remove": "Remove my location",
+    "manual_hint": "You can still continue: just enter your address manually.",
+    "privacy": "Your location is only used for this delivery and visible only to you and the DOSSORA team.",
+    "map_title": "Map of your location",
+    "open_map": "Open in OpenStreetMap",
+    "error_unsupported": "Your browser does not support geolocation.",
+    "error_insecure": "Geolocation requires a secure connection (HTTPS).",
+    "error_denied": "Location access was denied. Allow it in your browser settings to use this option.",
+    "error_unavailable": "Unable to get your position. Check that location services are turned on.",
+    "error_timeout": "Locating took too long. Please try again.",
+    "error_unknown": "Locating failed. Please try again."
+  },
+  "product": {
+    "out_of_stock": "Out of stock",
+    "new": "New",
+    "favorite": "Favorite",
+    "add_to_cart": "Add to cart",
+    "choose_options": "Choose options",
+    "color": "Color",
+    "size": "Size",
+    "shoe_size": "Shoe size",
+    "quantity": "Quantity",
+    "in_stock": "In stock",
+    "only_n_left": "Only {n} left",
+    "order_now": "Order now",
+    "share": "Share",
+    "link_copied": "Link copied",
+    "ask_whatsapp": "Question? WhatsApp",
+    "similar": "You may also like",
+    "perk_delivery": "Tracked international delivery",
+    "perk_payment": "Secure payment validated by our team",
+    "perk_returns": "Return within 48 h for defects or wrong color"
+  },
+  "cart": {
+    "added": "Added to cart",
+    "empty_title": "Your cart is empty",
+    "empty_text": "Discover our latest pieces.",
+    "continue": "Continue shopping",
+    "summary": "Summary",
+    "promo_code": "Promo code",
+    "apply": "Apply",
+    "promo_login": "Sign in to use a promo code.",
+    "promo_applied": "Code applied: -{amount}",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "shipping": "Shipping",
+    "shipping_next": "Calculated at checkout",
+    "total": "Total",
+    "total_estimate": "Estimated total",
+    "checkout": "Checkout",
+    "login_to_order": "Sign in to order",
+    "discover": "Discover the shop"
+  },
+  "favorites": {
+    "empty_title": "No favorites yet",
+    "empty_text": "Tap the heart on a product to find it here.",
+    "added": "Added to favorites",
+    "removed": "Removed from favorites"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "step_country": "Country",
+    "step_city": "City",
+    "step_address": "Address",
+    "step_info": "Your details",
+    "step_delivery": "Delivery",
+    "step_payment": "Payment",
+    "step_summary": "Summary",
+    "country_hint": "The country determines available cities, fees and payment methods.",
+    "required": "Required field",
+    "address": "Full address",
+    "address_short": "Address too short (5 characters minimum).",
+    "postal_code": "Postal code",
+    "saved_addresses": "Use a saved address",
+    "phone_invalid": "Invalid phone number.",
+    "notes": "Delivery instructions (optional)",
+    "standard_delivery": "Standard delivery",
+    "eta": "Estimated time: {min} to {max} days",
+    "free": "Free",
+    "free_from": "Free delivery from {amount}.",
+    "choose_payment": "Choose a payment method.",
+    "manual_notice": "Payment is validated manually: after ordering, send your proof of payment. Stock is reserved for 24 h.",
+    "accept_prefix": "I have read and accept the",
+    "accept_required": "You must accept the terms.",
+    "back": "Back",
+    "next": "Continue",
+    "place_order": "Place order",
+    "server_notice": "Prices, shipping fees and discounts are re-verified by the server when you confirm.",
+    "shipping_quote_error": "The shipping rate could not be verified. Please retry before confirming your order.",
+    "back_to_cart": "Back to cart"
+  },
+  "orders": {
+    "empty": "No orders yet.",
+    "delivered_title": "Your order has been delivered",
+    "delivery_question": "Did you receive your order?",
+    "confirm_delivery": "Confirm delivery",
+    "delivery_thanks": "Thank you! You confirmed receipt of your order.",
+    "delivery_unavailable": "Delivery confirmation is temporarily unavailable. Please try again later.",
+    "contact_unavailable": "Contact information is temporarily unavailable.",
+    "delivery_confirmed": "Delivery confirmed · Order received",
+    "received_on": "Received on: {date}",
+    "items": "Items",
+    "delivery_to": "Delivery",
+    "timeline": "Order tracking",
+    "confirmed_title": "Order confirmed",
+    "confirmed_text": "Your order #{n} has been recorded.",
+    "pay_title": "Complete your payment",
+    "reserved_until": "Stock reserved until {date}. After that, the order is cancelled automatically.",
+    "upload_proof": "Send my proof of payment",
+    "proof_whatsapp": "Send via WhatsApp",
+    "proof_sent": "Proof sent, awaiting validation.",
+    "proof_received_note": "Proof received. Our team is checking your payment.",
+    "view_proof": "View proof",
+    "cod_note": "Cash payment on delivery (Morocco).",
+    "cancelled_note": "This order is cancelled.",
+    "message_about": "Message us about this order",
+    "return_request": "Request a return",
+    "return_closed": "The 48 h return window has passed.",
+    "return_policy": "Returns are accepted within 48 h of receipt, only for defective items or wrong color.",
+    "reason": "Reason",
+    "reason_defective": "Defective item",
+    "reason_wrong_color": "Wrong color",
+    "description": "Description",
+    "photos": "Photos / video",
+    "photos_hint": "Maximum 3 files.",
+    "send_request": "Send request",
+    "return_sent": "Request sent.",
+    "return_unavailable": "The return request could not be saved right now.",
+    "returns_unavailable": "Return requests could not be loaded.",
+    "max_files": "You can attach up to 3 files.",
+    "refresh_unavailable": "The latest refresh failed. Previously loaded information is still shown.",
+    "payment_info_unavailable": "Payment information could not be loaded.",
+    "proof_unavailable": "The payment proof cannot be displayed right now.",
+    "returns": "Return requests",
+    "return_status_pending": "Pending",
+    "return_status_approved": "Approved",
+    "return_status_rejected": "Rejected",
+    "return_status_received": "Parcel received",
+    "return_status_refunded": "Refunded",
+    "return_status_exchanged": "Exchanged",
+    "confirmed_thanks": "Thank you for your trust.",
+    "whatsapp_order": "Confirm via WhatsApp",
+    "whatsapp_intro": "Hello, about my order #{n}:",
+    "whatsapp_header": "NEW ORDER",
+    "date": "Date"
+  },
+  "status": {
+    "pending_payment": "Awaiting payment",
+    "payment_proof_received": "Proof received",
+    "paid": "Paid",
+    "preparing": "Preparing",
+    "delivering": "Out for delivery",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
+  },
+  "account": {
+    "title": "My account",
+    "hello": "Hello {name}",
+    "overview": "Overview",
+    "orders": "My orders",
+    "profile": "Profile",
+    "addresses": "Addresses",
+    "messages": "Messages",
+    "notifications": "Notifications",
+    "security": "Security",
+    "logout": "Sign out",
+    "recent_orders": "Recent orders"
+  },
+  "addr": {
+    "add": "Add an address",
+    "empty": "No saved address.",
+    "label": "Name (e.g. Home)",
+    "address": "Address",
+    "default": "Default",
+    "set_default": "Set as default address"
+  },
+  "security": {
+    "change_password": "Change password",
+    "current_password": "Current password",
+    "current_wrong": "Current password is incorrect.",
+    "sessions": "Sessions",
+    "sessions_text": "Sign out from all your devices.",
+    "logout_all": "Sign out everywhere"
+  },
+  "messages": {
+    "new": "New message",
+    "subject": "Subject",
+    "write": "Your message",
+    "customer_label": "Customer",
+    "sent": "Sent",
+    "read": "Read",
+    "send": "Send",
+    "empty_title": "No conversations",
+    "empty_text": "Write to us, we reply quickly.",
+    "select": "Select a conversation.",
+    "about_order": "Order #{n}",
+    "closed": "Conversation closed.",
+    "closed_tag": "closed",
+    "close": "Close",
+    "reopen": "Reopen"
+  },
+  "notif": {
+    "empty": "No notifications",
+    "mark_all": "Mark all as read",
+    "new_order": "New order #{order_number} ({total})",
+    "order_created": "Your order #{order_number} has been recorded.",
+    "order_status": "Order #{order_number}: {status}",
+    "order_expired": "Order #{order_number} expired (stock released).",
+    "payment_to_verify": "Payment proof to verify: order #{order_number}",
+    "return_request": "Return request for order #{order_number}",
+    "low_stock": "Low stock: {product} ({available} left)",
+    "new_message": "New message: {subject}",
+    "new_reply": "Reply from DOSSORA: {subject}"
+  },
+  "footer": {
+    "about": "DOSSORA offers elegant pieces delivered to many countries.",
+    "shop": "Shop",
+    "legal": "Legal information",
+    "contact": "Contact",
+    "terms": "Terms of sale",
+    "returns": "Returns"
+  },
+  "legal": {
+    "review_notice": "These texts are provided as a template. We recommend having them reviewed by a legal advisor before going live.",
+    "contact": "Any question?",
+    "terms": {
+      "title": "Terms of sale",
+      "intro": "These terms govern orders placed on the DOSSORA store.",
+      "sections": [
+        {
+          "h": "Orders",
+          "p": "A customer account is required to order. The order is recorded once the summary is confirmed and is confirmed after payment validation."
+        },
+        {
+          "h": "Prices",
+          "p": "Prices are shown in the store currency. Shipping fees depend on the chosen country and city and are displayed before you confirm."
+        },
+        {
+          "h": "Availability",
+          "p": "Stock is reserved for 24 h after ordering. Without payment within this time, the order is cancelled and stock released."
+        },
+        {
+          "h": "Returns",
+          "p": "See the “Return policy” page."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "intro": "We handle your data with care and only to manage your account and orders.",
+      "sections": [
+        {
+          "h": "Data collected",
+          "p": "Identity, email, phone, delivery addresses, order history and messages exchanged with us."
+        },
+        {
+          "h": "Use",
+          "p": "Order processing and delivery, customer service, account security. We do not sell your data."
+        },
+        {
+          "h": "Your rights",
+          "p": "You may access, correct or request deletion of your data by writing to us."
+        },
+        {
+          "h": "Security",
+          "p": "Payment proofs are stored in a private space accessible only to you and the DOSSORA team."
+        }
+      ]
+    },
+    "legal_notice": {
+      "title": "Legal notice",
+      "intro": "Information about the site publisher.",
+      "sections": [
+        {
+          "h": "Publisher",
+          "p": "DOSSORA. Company name, address and legal identifiers (tax and trade register numbers) must be completed by the operator before going live."
+        },
+        {
+          "h": "Contact",
+          "p": "Email: dossorashop@gmail.com — WhatsApp: +212 603 391 255."
+        },
+        {
+          "h": "Hosting",
+          "p": "The site is hosted on Cloudflare Pages; data is managed by Supabase."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie policy",
+      "intro": "The site only uses technical storage.",
+      "sections": [
+        {
+          "h": "Local storage",
+          "p": "We keep your language, cart, favorites and login session in your browser."
+        },
+        {
+          "h": "No advertising",
+          "p": "No advertising or third-party tracking cookies are set by default."
+        },
+        {
+          "h": "Management",
+          "p": "You can clear this data from your browser settings."
+        }
+      ]
+    },
+    "returns": {
+      "title": "Return policy",
+      "intro": "Returns are possible within 48 h of receipt.",
+      "sections": [
+        {
+          "h": "Conditions",
+          "p": "Returns are accepted within 48 hours of receiving the parcel, only if the item is defective or the color received differs from the order."
+        },
+        {
+          "h": "How to proceed",
+          "p": "From “My account > My orders”, open the delivered order and click “Request a return” with photos or video."
+        },
+        {
+          "h": "Handling",
+          "p": "Our team reviews the request and offers an exchange or refund depending on the case."
+        }
+      ]
+    },
+    "shipping": {
+      "title": "Shipping policy",
+      "intro": "We deliver to the countries offered at checkout.",
+      "sections": [
+        {
+          "h": "Countries and fees",
+          "p": "Fees depend on the country and city. Free delivery may apply above a purchase threshold shown at checkout."
+        },
+        {
+          "h": "Delivery times",
+          "p": "The estimated time is shown at the delivery step. It starts after payment validation."
+        },
+        {
+          "h": "Tracking",
+          "p": "Your order status is visible in your account, with a notification at each step."
+        }
+      ]
+    },
+    "payment": {
+      "title": "Payment policy",
+      "intro": "Several payment methods are offered.",
+      "sections": [
+        {
+          "h": "Accepted methods",
+          "p": "CIH Bank, Wafacash, Western Union, MoneyGram, Wave, bank transfer and cash on delivery (Morocco only)."
+        },
+        {
+          "h": "Manual validation",
+          "p": "Offline payments stay “pending” until our team verifies your proof."
+        },
+        {
+          "h": "Time limit",
+          "p": "Stock is reserved for 24 h. Without payment within this time, the order is cancelled."
+        }
+      ]
+    }
+  },
+  "home": {
+    "hero_title": "Elegance within reach",
+    "hero_subtitle": "Discover our selection of fashion, beauty, accessories and lifestyle.",
+    "hero_cta": "Discover the shop",
+    "categories": "Our categories",
+    "new_arrivals": "New arrivals",
+    "new_arrivals_sub": "The latest additions.",
+    "popular": "Most loved",
+    "promotions": "Sale",
+    "promotions_sub": "Gentle prices on a selection.",
+    "collections": "Collections",
+    "collections_sub": "Explore our worlds.",
+    "adv1_title": "Careful selection",
+    "adv1_text": "Every piece is chosen for its quality.",
+    "adv2_title": "International delivery",
+    "adv2_text": "We deliver to several countries.",
+    "adv3_title": "Flexible payment",
+    "adv3_text": "Transfer, money transfer or cash on delivery in Morocco.",
+    "adv4_title": "Responsive service",
+    "adv4_text": "A team available by messaging and WhatsApp.",
+    "delivery_title": "Delivery everywhere",
+    "delivery_sub": "Choose your country, we take care of the rest.",
+    "payment_title": "Payment methods",
+    "bank_transfer": "Bank transfer",
+    "cod_morocco": "Cash on delivery (Morocco)",
+    "testimonials_title": "What they say",
+    "testimonials": [
+      {
+        "name": "Salma",
+        "text": "Superb quality and careful packaging. Highly recommended."
+      },
+      {
+        "name": "Fatou",
+        "text": "Fast delivery and a very responsive team on WhatsApp."
+      },
+      {
+        "name": "Amélie",
+        "text": "Elegant pieces, exactly like the photos."
+      }
+    ],
+    "newsletter_title": "Stay in touch",
+    "newsletter_text": "Get our new arrivals and private offers.",
+    "newsletter_cta": "Subscribe",
+    "newsletter_ok": "Thank you, you are subscribed!",
+    "hero_cta2": "See new arrivals"
+  },
+  "seo": {
+    "home_description": "DOSSORA — Elegance within reach. International online store: fashion and accessories, delivered to several countries.",
+    "shop_description": "Browse the full DOSSORA collection: new arrivals, sale and best-sellers."
+  },
+  "shop": {
+    "categories": "Categories",
+    "price": "Price",
+    "apply": "Apply",
+    "collections": "Collections",
+    "flag_new": "New in",
+    "flag_sale": "Sale",
+    "flag_popular": "Popular",
+    "flag_featured": "Featured",
+    "in_stock_only": "In stock only",
+    "results": "{n} product(s)",
+    "filters": "Filters",
+    "sort": "Sort",
+    "sort_newest": "Newest",
+    "sort_popular": "Popular",
+    "sort_price_asc": "Price: low to high",
+    "sort_price_desc": "Price: high to low",
+    "empty_title": "No products found",
+    "empty_text": "Try widening your search.",
+    "reset": "Reset",
+    "load_more": "Load more"
+  },
+  "wa": {
+    "general": "Hello DOSSORA, I have a question.",
+    "product": "Hello, I am interested in: {name} {url}",
+    "proof": "Hello, here is my proof of payment for order #{n}."
+  },
+  "errors": {
+    "network": "Unable to connect. Check your network and try again.",
+    "network_title": "Connection issue",
+    "not_found": "Page not found",
+    "not_found_text": "This page does not exist or has moved.",
+    "generic": "Something went wrong. Please try again.",
+    "invalid_email": "Invalid email address.",
+    "file_size": "File too large.",
+    "file_type": "File type not allowed.",
+    "invalid_credentials": "Incorrect email or password.",
+    "email_not_confirmed": "Please confirm your email before signing in.",
+    "email_taken": "This email is already in use.",
+    "session_expired": "Session expired, please sign in again.",
+    "INSUFFICIENT_STOCK": "Not enough stock for this item.",
+    "PRODUCT_UNAVAILABLE": "A product is no longer available.",
+    "PROMO_INVALID": "Invalid promo code.",
+    "PROMO_EXPIRED": "This promo code has expired.",
+    "PROMO_NOT_STARTED": "This code is not active yet.",
+    "PROMO_EXHAUSTED": "This code has reached its usage limit.",
+    "PROMO_MIN_ORDER": "Minimum order amount not reached for this code.",
+    "COUNTRY_UNAVAILABLE": "Delivery unavailable in this country.",
+    "CITY_UNAVAILABLE": "Delivery unavailable in this city.",
+    "PAYMENT_UNAVAILABLE": "Payment method unavailable.",
+    "EMPTY_CART": "Your cart is empty.",
+    "INVALID_INPUT": "Invalid or incomplete information.",
+    "AUTH_REQUIRED": "Sign-in required.",
+    "FORBIDDEN": "Action not allowed.",
+    "RETURN_WINDOW_CLOSED": "The 48 h return window has passed.",
+    "INVALID_STOCK": "Invalid quantity.",
+    "INVALID_TRANSITION": "This status change is not possible.",
+    "db_not_ready": "The shop is being set up. Please try again in a few moments.",
+    "upload_failed": "File upload failed. Please try again."
+  },
+  "config": {
+    "missing": "The shop is not connected to Supabase yet: set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env (see README)."
+  },
+  "search": {
+    "no_results": "No results for “{q}”",
+    "no_results_hint": "Try another word or browse our categories.",
+    "see_all": "See all results for “{q}”"
+  }
+}
