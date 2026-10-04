@@ -75,6 +75,7 @@ const RPC_PUBLIC = new Set([
   'confirm_order_delivery',
   'admin_dashboard',
   'admin_send_promotion',
+  'ensure_profile',
   'release_expired_reservations',
 ]);
 const fns = [];

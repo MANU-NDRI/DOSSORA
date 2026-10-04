@@ -69,7 +69,15 @@
     "check_email_text": "A confirmation message was sent to {email}. Click the link to activate your account, then sign in.",
     "register_cta": "Create an account",
     "login_cta": "Sign in",
-    "signup_short": "Sign up"
+    "signup_short": "Sign up",
+    "continue_google": "Continue with Google",
+    "or": "or",
+    "oauth_start_error": "Could not start sign-in. Please try again in a moment.",
+    "oauth_cancelled": "Sign-in was cancelled. You can try again whenever you like.",
+    "oauth_failed": "Sign-in with this provider failed. Try again or choose another method.",
+    "oauth_session_error": "Your session could not be recovered. Please sign in again.",
+    "oauth_profile_error": "Your profile could not be prepared. Please try again or contact support.",
+    "oauth_completing": "Finishing your sign-in…"
   },
   "geo": {
     "country": "Country",
@@ -151,6 +159,7 @@
     "step_summary": "Summary",
     "country_hint": "The country determines available cities, fees and payment methods.",
     "required": "Required field",
+    "full_name": "Full name",
     "address": "Full address",
     "address_short": "Address too short (5 characters minimum).",
     "postal_code": "Postal code",
@@ -247,7 +256,8 @@
     "notifications": "Notifications",
     "security": "Security",
     "logout": "Sign out",
-    "recent_orders": "Recent orders"
+    "recent_orders": "Recent orders",
+    "admin_access": "Access administration"
   },
   "addr": {
     "add": "Add an address",

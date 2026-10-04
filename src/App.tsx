@@ -23,6 +23,7 @@ const Login = lazy(() => import('@/pages/Auth').then((m) => ({ default: m.Login 
 const Register = lazy(() => import('@/pages/Auth').then((m) => ({ default: m.Register })));
 const Forgot = lazy(() => import('@/pages/Auth').then((m) => ({ default: m.ForgotPassword })));
 const Reset = lazy(() => import('@/pages/Auth').then((m) => ({ default: m.ResetPassword })));
+const AuthCallback = lazy(() => import('@/pages/AuthCallback'));
 const AdminLogin = lazy(() => import('@/pages/admin/AdminLogin'));
 
 const Dashboard = lazy(() => import('@/pages/account/Dashboard'));
@@ -147,6 +148,7 @@ export default function App() {
         <Route path="*" element={<NotFound />} />
       </Route>
       <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/auth/callback" element={<AuthCallback />} />
       <Route
         path="/admin/orders/:id/label"
         element={

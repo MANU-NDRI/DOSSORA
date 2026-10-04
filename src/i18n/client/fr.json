@@ -69,7 +69,15 @@
     "check_email_text": "Un message de confirmation a été envoyé à {email}. Cliquez sur le lien pour activer votre compte, puis connectez-vous.",
     "register_cta": "Créer un compte",
     "login_cta": "Se connecter",
-    "signup_short": "Inscription"
+    "signup_short": "Inscription",
+    "continue_google": "Continuer avec Google",
+    "or": "ou",
+    "oauth_start_error": "Impossible de démarrer la connexion. Réessayez dans un instant.",
+    "oauth_cancelled": "Connexion annulée. Vous pouvez réessayer quand vous le souhaitez.",
+    "oauth_failed": "La connexion avec ce fournisseur a échoué. Réessayez ou choisissez une autre méthode.",
+    "oauth_session_error": "La session n’a pas pu être récupérée. Veuillez vous reconnecter.",
+    "oauth_profile_error": "Votre profil n’a pas pu être préparé. Réessayez ou contactez l’assistance.",
+    "oauth_completing": "Finalisation de votre connexion…"
   },
   "geo": {
     "country": "Pays",
@@ -151,6 +159,7 @@
     "step_summary": "Récapitulatif",
     "country_hint": "Le pays détermine les villes disponibles, les frais et les moyens de paiement.",
     "required": "Champ obligatoire",
+    "full_name": "Nom complet",
     "address": "Adresse complète",
     "address_short": "Adresse trop courte (5 caractères minimum).",
     "postal_code": "Code postal",
@@ -247,7 +256,8 @@
     "notifications": "Notifications",
     "security": "Sécurité",
     "logout": "Déconnexion",
-    "recent_orders": "Dernières commandes"
+    "recent_orders": "Dernières commandes",
+    "admin_access": "Accéder à l’administration"
   },
   "addr": {
     "add": "Ajouter une adresse",

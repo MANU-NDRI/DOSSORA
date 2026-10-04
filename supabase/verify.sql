@@ -109,3 +109,65 @@ where has_table_privilege('authenticated', 'public.orders', 'UPDATE')
    or not has_function_privilege('authenticated', 'public.confirm_order_delivery(uuid)', 'EXECUTE');
 select 'customers.last_activity' as "colonne_manquante (migration 003)"
 where not exists (select 1 from information_schema.columns where table_schema = 'public' and table_name = 'customers' and column_name = 'last_activity');
+
+-- 11) Outbox WhatsApp des nouvelles commandes (migration 006).
+select missing as "objet_manquant (migration 006)"
+from (values
+  ('whatsapp_order_notifications', to_regclass('public.whatsapp_order_notifications') is not null),
+  ('whatsapp_order_notification_parts', to_regclass('public.whatsapp_order_notification_parts') is not null),
+  ('whatsapp_order_notification_attempts', to_regclass('public.whatsapp_order_notification_attempts') is not null),
+  ('claim_whatsapp_order_notifications', to_regprocedure('public.claim_whatsapp_order_notifications(text,integer)') is not null),
+  ('register_whatsapp_order_parts', to_regprocedure('public.register_whatsapp_order_parts(uuid,jsonb)') is not null),
+  ('claim_whatsapp_order_parts', to_regprocedure('public.claim_whatsapp_order_parts(uuid,integer)') is not null),
+  ('finish_whatsapp_order_attempt', to_regprocedure('public.finish_whatsapp_order_attempt(uuid,boolean,text,integer,text,boolean)') is not null),
+  ('finalize_whatsapp_order_notification', to_regprocedure('public.finalize_whatsapp_order_notification(uuid)') is not null),
+  ('release_whatsapp_order_notification', to_regprocedure('public.release_whatsapp_order_notification(uuid,text)') is not null)
+) as checks(missing, installed)
+where not installed;
+select 'trg_enqueue_whatsapp_new_order' as "trigger_manquant_ou_desactive (migration 006)"
+where not exists (
+  select 1 from pg_trigger t join pg_class c on c.oid = t.tgrelid
+  join pg_namespace n on n.oid = c.relnamespace
+  where n.nspname = 'public' and c.relname = 'orders'
+    and t.tgname = 'trg_enqueue_whatsapp_new_order' and not t.tgisinternal and t.tgenabled <> 'D'
+);
+select 'outbox WhatsApp RLS/permissions' as "protection_manquante (migration 006)"
+where exists (
+  select 1 from pg_class c join pg_namespace n on n.oid = c.relnamespace
+  where n.nspname = 'public' and c.relname in ('whatsapp_order_notifications','whatsapp_order_notification_parts','whatsapp_order_notification_attempts')
+    and not c.relrowsecurity
+)
+or has_table_privilege('authenticated', to_regclass('public.whatsapp_order_notifications'), 'INSERT')
+or has_table_privilege('authenticated', to_regclass('public.whatsapp_order_notifications'), 'UPDATE')
+or has_table_privilege('authenticated', to_regclass('public.whatsapp_order_notifications'), 'DELETE')
+or has_function_privilege('authenticated', to_regprocedure('public.claim_whatsapp_order_notifications(text,integer)'), 'EXECUTE')
+or has_function_privilege('anon', to_regprocedure('public.claim_whatsapp_order_notifications(text,integer)'), 'EXECUTE');
+
+-- 10) Bootstrap du profil après OAuth : migration 005 (diagnostic en lecture seule).
+select 'handle_new_user OAuth (migration 005)' as "fonction_manquante_ou_obsolete"
+where not exists (
+  select 1 from pg_proc p
+  where p.oid = to_regprocedure('public.handle_new_user()')
+    and p.prosrc ilike '%raw_user_meta_data%'
+    and p.prosrc ilike '%on conflict (id) do nothing%'
+);
+select 'ensure_profile OAuth (migration 005)' as "fonction_manquante_ou_obsolete"
+where not exists (
+  select 1 from pg_proc p
+  where p.oid = to_regprocedure('public.ensure_profile()')
+    and p.prosecdef
+    and p.prosrc ilike '%auth.uid()%'
+    and p.prosrc ilike '%on conflict (id) do nothing%'
+);
+select 'on_auth_user_created (migration 005)' as "trigger_manquant_ou_desactive"
+where not exists (
+  select 1 from pg_trigger t
+  join pg_class c on c.oid = t.tgrelid
+  join pg_namespace n on n.oid = c.relnamespace
+  where n.nspname = 'auth' and c.relname = 'users'
+    and t.tgname = 'on_auth_user_created' and not t.tgisinternal and t.tgenabled <> 'D'
+);
+select 'ensure_profile execute grant (migration 005)' as "permission_incorrecte"
+where to_regprocedure('public.ensure_profile()') is not null
+  and (not has_function_privilege('authenticated', 'public.ensure_profile()', 'EXECUTE')
+    or has_function_privilege('anon', 'public.ensure_profile()', 'EXECUTE'));

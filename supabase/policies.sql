@@ -135,6 +135,7 @@ revoke all on function public.confirm_order_delivery(uuid) from public, anon;
 revoke all on function public.admin_dashboard() from public, anon;
 revoke all on function public.release_expired_reservations() from public, anon, authenticated;
 revoke all on function public.admin_send_promotion(uuid[], boolean, text, text, text) from public, anon;
+revoke all on function public.ensure_profile() from public, anon;
 grant execute on function public.create_order(jsonb) to authenticated;
 grant execute on function public.validate_discount(text, numeric) to authenticated;
 grant execute on function public.attach_payment_proof(uuid, text) to authenticated;
@@ -146,6 +147,7 @@ grant execute on function public.mark_conversation_read(uuid) to authenticated;
 grant execute on function public.confirm_order_delivery(uuid) to authenticated;
 grant execute on function public.admin_dashboard() to authenticated;
 grant execute on function public.admin_send_promotion(uuid[], boolean, text, text, text) to authenticated;
+grant execute on function public.ensure_profile() to authenticated;
 
 -- ---------- STORAGE ----------
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types) values

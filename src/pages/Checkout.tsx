@@ -34,6 +34,7 @@ export default function Checkout() {
   const [step, setStep] = useState(0);
   const [country, setCountry] = useState('');
   const [city, setCity] = useState('');
+  const [citiesByCountry, setCitiesByCountry] = useState<Record<string, string>>({});
   const cities = useCities(country);
   const [address, setAddress] = useState('');
   const [postal, setPostal] = useState('');
@@ -71,6 +72,17 @@ export default function Checkout() {
       phone: p.phone || profile?.phone || '',
     }));
   }, [profile, user]);
+  useEffect(() => {
+    if (!country && profile?.country_code && countries.data.some((item) => item.code === profile.country_code)) {
+      setCountry(profile.country_code);
+    }
+  }, [country, countries.data, profile?.country_code]);
+  useEffect(() => {
+    if (country && !city && profile?.country_code === country && profile.city && cities.data.includes(profile.city)) {
+      setCity(profile.city);
+      setCitiesByCountry((previous) => ({ ...previous, [country]: profile.city as string }));
+    }
+  }, [city, cities.data, country, profile?.city, profile?.country_code]);
   useEffect(() => {
     if (!user) return;
     void supabase
@@ -143,16 +155,27 @@ export default function Checkout() {
       </div>
     );
 
+  const changeCountry = (nextCountry: string) => {
+    if (country && city) setCitiesByCountry((previous) => ({ ...previous, [country]: city }));
+    setCountry(nextCountry);
+    setCity(citiesByCountry[nextCountry] ?? '');
+  };
+
   const validate = (s: Step): Record<string, string> => {
     const e: Record<string, string> = {};
     if (s === 'country' && !country) e.country = t('checkout.required');
     if (s === 'city' && !city) e.city = t('checkout.required');
     if (s === 'address' && address.trim().length < 5) e.address = t('checkout.address_short');
     if (s === 'info') {
-      if (!f.first_name.trim()) e.first_name = t('checkout.required');
-      if (!f.last_name.trim()) e.last_name = t('checkout.required');
+      if (country === 'MA') {
+        if (!f.first_name.trim() || !f.last_name.trim()) e.full_name = t('checkout.required');
+      } else {
+        if (!f.first_name.trim()) e.first_name = t('checkout.required');
+        if (!f.last_name.trim()) e.last_name = t('checkout.required');
+      }
       if (!isEmail(f.email)) e.email = t('errors.invalid_email');
-      if (f.phone.replace(/\D/g, '').length < 8) e.phone = t('checkout.phone_invalid');
+      const phoneDigits = f.phone.replace(/\D/g, '');
+      if (phoneDigits.length < 8 || phoneDigits.length > 15) e.phone = t('checkout.phone_invalid');
     }
     if (s === 'payment' && !payment) e.payment = t('checkout.choose_payment');
     return e;
@@ -263,10 +286,7 @@ export default function Checkout() {
                   <select
                     className="input"
                     value={country}
-                    onChange={(e) => {
-                      setCountry(e.target.value);
-                      setCity('');
-                    }}
+                    onChange={(e) => changeCountry(e.target.value)}
                   >
                     <option value="">{t('geo.select_country')}</option>
                     {countries.data.map((x) => (
@@ -286,8 +306,12 @@ export default function Checkout() {
                   country={country}
                   city={city}
                   onChange={(v) => {
-                    setCountry(v.country);
-                    setCity(v.city);
+                    if (v.country !== country) {
+                      changeCountry(v.country);
+                    } else if (v.city !== city) {
+                      setCity(v.city);
+                      if (v.country && v.city) setCitiesByCountry((previous) => ({ ...previous, [v.country]: v.city }));
+                    }
                   }}
                   errors={{ city: errs.city }}
                 />
@@ -307,7 +331,7 @@ export default function Checkout() {
                       onChange={(e) => {
                         const a = saved.find((x) => x.id === e.target.value);
                         if (!a) return;
-                        setCountry(a.country_code);
+                        changeCountry(a.country_code);
                         setCity(a.city);
                         setAddress(a.address);
                         setPostal(a.postal_code ?? '');
@@ -348,22 +372,40 @@ export default function Checkout() {
 
             {STEPS[step] === 'info' && (
               <div className="grid max-w-xl gap-4 sm:grid-cols-2">
-                <Field label={`${t('auth.first_name')} *`} error={errs.first_name}>
-                  <input
-                    className="input"
-                    value={f.first_name}
-                    onChange={(e) => setF({ ...f, first_name: e.target.value })}
-                    autoComplete="given-name"
-                  />
-                </Field>
-                <Field label={`${t('auth.last_name')} *`} error={errs.last_name}>
-                  <input
-                    className="input"
-                    value={f.last_name}
-                    onChange={(e) => setF({ ...f, last_name: e.target.value })}
-                    autoComplete="family-name"
-                  />
-                </Field>
+                {country === 'MA' ? (
+                  <div className="sm:col-span-2">
+                    <Field label={`${t('checkout.full_name')} *`} error={errs.full_name}>
+                      <input
+                        className="input"
+                        value={[f.first_name, f.last_name].filter(Boolean).join(' ')}
+                        onChange={(e) => {
+                          const [first_name = '', ...lastNames] = e.target.value.trim().split(/\s+/);
+                          setF({ ...f, first_name, last_name: lastNames.join(' ') });
+                        }}
+                        autoComplete="name"
+                      />
+                    </Field>
+                  </div>
+                ) : (
+                  <>
+                    <Field label={`${t('auth.first_name')} *`} error={errs.first_name}>
+                      <input
+                        className="input"
+                        value={f.first_name}
+                        onChange={(e) => setF({ ...f, first_name: e.target.value })}
+                        autoComplete="given-name"
+                      />
+                    </Field>
+                    <Field label={`${t('auth.last_name')} *`} error={errs.last_name}>
+                      <input
+                        className="input"
+                        value={f.last_name}
+                        onChange={(e) => setF({ ...f, last_name: e.target.value })}
+                        autoComplete="family-name"
+                      />
+                    </Field>
+                  </>
+                )}
                 <Field label={`${t('auth.email')} *`} error={errs.email}>
                   <input
                     type="email"

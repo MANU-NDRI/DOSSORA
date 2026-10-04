@@ -54,6 +54,12 @@ export function AccountLayout() {
               )}
             </NavLink>
           ))}
+          {profile?.role === 'admin' && (
+            <Link to="/admin" className="flex shrink-0 items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-bordeaux hover:bg-bordeaux/5 lg:rounded-xl">
+              <Icon name="shield" className="h-4 w-4" />
+              {t('account.admin_access')}
+            </Link>
+          )}
           <button
             onClick={() => setConfirmLogout(true)}
             className="flex shrink-0 items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-red-700 hover:bg-red-50 lg:rounded-xl"

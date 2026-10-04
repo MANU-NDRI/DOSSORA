@@ -935,6 +935,7 @@ export interface Database {
       };
     };
     Functions: {
+      ensure_profile: { Args: Record<PropertyKey, never>; Returns: undefined };
       admin_send_promotion: { Args: { p_user_ids: string[]; p_all: boolean; p_title: string; p_message: string; p_code?: string | null }; Returns: number };
       release_expired_reservations: { Args: Record<PropertyKey, never>; Returns: number };
       validate_discount: { Args: { p_code: string; p_subtotal: number }; Returns: Json };
