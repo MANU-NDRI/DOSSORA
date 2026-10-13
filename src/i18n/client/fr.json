@@ -311,9 +311,13 @@
     "legal": "Informations légales",
     "contact": "Contact",
     "terms": "Conditions générales",
+   
     "returns": "Retours"
   },
+  "legal": {
     "contact": "Une question ?",
+    "terms": {
+
     "terms": {
       "title": "Conditions générales de vente",
       "intro": "Les présentes conditions régissent les commandes passées sur la boutique DOSSORA.",
