@@ -440,16 +440,17 @@
           "h": "Moyens acceptés",
           "p": "CIH Bank, Wafacash, Western Union, MoneyGram, Wave, virement bancaire et paiement à la livraison (Maroc uniquement)."
         },
-        {
+               {
           "h": "Validation manuelle",
-          "p": "Les paiements hors ligne restent « en attente » jusqu’à vérification de votre preuve par notre équipe."
+          "p": "Les paiements hors ligne restent « en attente » jusqu'à vérification de votre preuve par notre équipe."
         },
         {
           "h": "Délai",
           "p": "Le stock est réservé 24 h. Sans paiement dans ce délai, la commande est annulée."
-         ]
-       }
-     },
+        }
+      ]
+    }
+  },
   "home": {
     "hero_title": "L’élégance à votre portée",
     "hero_subtitle": "Découvrez notre sélection mode, beauté, accessoires et lifestyle.",
