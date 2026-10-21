@@ -27,9 +27,6 @@ export default function LegalPage() {
       <Seo title={t(`legal.${key}.title`)} description={t(`legal.${key}.intro`)} />
       <h1 className="text-3xl sm:text-5xl">{t(`legal.${key}.title`)}</h1>
       <div className="gold-rule mb-6 mt-3" />
-      <p className="mb-6 rounded-2xl border border-gold/60 bg-gold/10 p-4 text-xs text-ink/80" role="note">
-        {t('legal.review_notice')}
-      </p>
       <p className="mb-6 text-sm leading-relaxed text-ink/85">{t(`legal.${key}.intro`)}</p>
       <div className="space-y-6">
         {sections.map((s) => (

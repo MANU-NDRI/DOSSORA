@@ -64,7 +64,7 @@ export function AdminLayout() {
   return (
     <div className="min-h-screen bg-ivory-dark/40 lg:grid lg:grid-cols-[250px_1fr]">
       <Seo title={t('admin.nav.dashboard')} noindex />
-      <aside className="hidden bg-bordeaux p-4 lg:block">
+      <aside className="sticky top-0 hidden h-screen self-start overflow-y-auto bg-bordeaux p-4 lg:block">
         <Link to="/admin/dashboard" className="mb-6 block px-3 pt-2 font-display text-2xl font-bold tracking-[0.25em] text-ivory" dir="ltr">
           DOSSORA
         </Link>

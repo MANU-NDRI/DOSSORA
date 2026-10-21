@@ -11,18 +11,19 @@ import { invalidateCache } from '@/hooks/useData';
 import { removePublicImageByUrl } from '@/services/storage';
 import { reportError } from '@/lib/diagnostics';
 
+type Row = Record<string, unknown>;
+
 export interface FieldDef {
   name: string;
   label: string;
   type: 'text' | 'textarea' | 'number' | 'bool' | 'select' | 'image' | 'datetime';
-  options?: Array<{ value: string; label: string }>;
+  options?: Array<{ value: string; label: string }> | ((rows: Row[], current: Row) => Array<{ value: string; label: string }>);
   required?: boolean;
   lockOnEdit?: boolean;
   half?: boolean;
   hint?: string;
   aspect?: 'square' | 'wide' | 'tall';
 }
-type Row = Record<string, unknown>;
 interface Props {
   title: string;
   table: string;
@@ -183,6 +184,7 @@ export function ResourceManager({
             {preview && <div className="sm:col-span-2">{preview(form)}</div>}
             {fields.map((f) => {
               const v = form[f.name];
+              const options = typeof f.options === 'function' ? f.options(data ?? [], form) : f.options;
               const set = (x: unknown) => setForm({ ...form, [f.name]: x });
               const wrap = (child: ReactNode) => (
                 <div key={f.name} className={f.half ? '' : 'sm:col-span-2'}>
@@ -218,7 +220,7 @@ export function ResourceManager({
                     />
                   ) : f.type === 'select' ? (
                     <select className="input" value={(v as string) ?? ''} onChange={(e) => set(e.target.value)}>
-                      {f.options?.map((o) => (
+                      {options?.map((o) => (
                         <option key={o.value} value={o.value}>
                           {o.label}
                         </option>

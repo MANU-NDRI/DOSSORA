@@ -41,6 +41,14 @@ export function Header() {
   useEffect(() => {
     setMenu(false);
   }, [pathname, setMenu]);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
   const announcement = loc(settings, 'announcement', lang);
   const links = [
     { to: '/', label: t('nav.home'), end: true },
@@ -52,98 +60,100 @@ export function Header() {
   const linkCls = ({ isActive }: { isActive: boolean }) =>
     `rounded-full px-3 py-2 text-sm font-medium transition hover:text-bordeaux ${isActive ? 'text-bordeaux' : 'text-ink/80'}`;
   return (
-    <header className="sticky top-0 z-50 bg-ivory/95 backdrop-blur">
-      {announcement && (
-        <div className="bg-bordeaux px-4 py-1.5 text-center text-[11px] font-medium text-gold-light sm:text-xs">{announcement}</div>
-      )}
-      <div className="container-x flex h-16 items-center justify-between gap-2 border-b border-bordeaux/10 sm:h-20">
-        <div className="flex items-center gap-1 xl:hidden">
-          <button
-            onClick={() => setMenu(true)}
-            aria-label={t('nav.menu')}
-            aria-expanded={menuOpen}
-            className="hidden h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10 min-[360px]:flex"
-          >
-            <Icon name="menu" />
-          </button>
-        </div>
-        <Logo />
-        <nav aria-label="Main" className="hidden items-center gap-1 xl:flex">
-          {links.map((l) => (
-            <NavLink key={l.to} to={l.to} end={l.end} className={linkCls}>
-              {l.label}
-            </NavLink>
-          ))}
-        </nav>
-        <div className="flex items-center gap-0.5 sm:gap-1">
-          <button
-            onClick={() => setSearch(true)}
-            aria-label={t('nav.search')}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10"
-          >
-            <Icon name="search" />
-          </button>
-          <span className="hidden sm:block">
-            <LanguageSwitcher />
-          </span>
-          <Link
-            to="/favorites"
-            aria-label={t('nav.favorites')}
-            className="relative hidden h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10 lg:flex"
-          >
-            <Icon name="heart" />
-            {favCount > 0 && <span className="absolute end-1 top-1 h-2 w-2 rounded-full bg-gold" />}
-          </Link>
-          {user && <NotificationBell to="/account/notifications" />}
-          {user ? (
-            <Link
-              to="/account"
-              aria-label={t('nav.account')}
-              className="flex h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10"
+    <>
+      <header className="sticky top-0 z-50 bg-ivory/95 backdrop-blur">
+        {announcement && (
+          <div className="bg-bordeaux px-4 py-1.5 text-center text-[11px] font-medium text-gold-light sm:text-xs">{announcement}</div>
+        )}
+        <div className="container-x flex h-16 items-center justify-between gap-2 border-b border-bordeaux/10 sm:h-20">
+          <div className="flex shrink-0 items-center gap-1 xl:hidden">
+            <button
+              onClick={() => setMenu(true)}
+              aria-label={t('nav.menu')}
+              aria-expanded={menuOpen}
+              className="flex h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10 max-[399px]:h-9 max-[399px]:w-9"
             >
-              <Icon name="user" />
+              <Icon name="menu" />
+            </button>
+          </div>
+          <Logo compact />
+          <nav aria-label="Main" className="hidden items-center gap-1 xl:flex">
+            {links.map((l) => (
+              <NavLink key={l.to} to={l.to} end={l.end} className={linkCls}>
+                {l.label}
+              </NavLink>
+            ))}
+          </nav>
+          <div className="flex items-center gap-0.5 sm:gap-1">
+            <button
+              onClick={() => setSearch(true)}
+              aria-label={t('nav.search')}
+              className="flex h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10 max-[399px]:h-9 max-[399px]:w-9"
+            >
+              <Icon name="search" />
+            </button>
+            <span className="hidden sm:block">
+              <LanguageSwitcher />
+            </span>
+            <Link
+              to="/favorites"
+              aria-label={t('nav.favorites')}
+              className="relative hidden h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10 lg:flex"
+            >
+              <Icon name="heart" />
+              {favCount > 0 && <span className="absolute end-1 top-1 h-2 w-2 rounded-full bg-gold" />}
             </Link>
-          ) : (
-            <>
+            {user && <NotificationBell to="/account/notifications" />}
+            {user ? (
               <Link
-                to="/login"
-                aria-label={t('auth.login')}
-                className="flex h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10 md:hidden"
+                to="/account"
+                aria-label={t('nav.account')}
+                className="flex h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10 max-[399px]:h-9 max-[399px]:w-9"
               >
                 <Icon name="user" />
               </Link>
-              <Link to="/login" className="btn-ghost btn-sm hidden whitespace-nowrap md:inline-flex">
-                {t('auth.login')}
-              </Link>
-              <Link to="/register" className="btn-primary btn-sm hidden whitespace-nowrap md:inline-flex">
-                {t('auth.signup_short')}
-              </Link>
-            </>
-          )}
-          <Link
-            to="/cart"
-            data-cart-icon
-            aria-label={`${t('nav.cart')} (${count})`}
-            className="relative flex h-10 w-10 items-center justify-center rounded-full text-bordeaux transition-colors duration-fast hover:bg-bordeaux/10"
-          >
-            <span key={bump} className={bump ? 'animate-bump' : undefined}>
-              <Icon name="bag" />
-            </span>
-            <AnimatePresence>
-              {shownCount > 0 && (
-                <motion.span
-                  key={shownCount}
-                  initial={{ scale: 0.4 }}
-                  animate={{ scale: 1 }}
-                  className="absolute end-0.5 top-0.5 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-bordeaux px-1 text-[10px] font-bold text-ivory"
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  aria-label={t('auth.login')}
+                  className="flex h-10 w-10 items-center justify-center rounded-full text-bordeaux hover:bg-bordeaux/10 max-[399px]:h-9 max-[399px]:w-9 md:hidden"
                 >
-                  {shownCount}
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </Link>
+                  <Icon name="user" />
+                </Link>
+                <Link to="/login" className="btn-ghost btn-sm hidden whitespace-nowrap md:inline-flex">
+                  {t('auth.login')}
+                </Link>
+                <Link to="/register" className="btn-primary btn-sm hidden whitespace-nowrap md:inline-flex">
+                  {t('auth.signup_short')}
+                </Link>
+              </>
+            )}
+            <Link
+              to="/cart"
+              data-cart-icon
+              aria-label={`${t('nav.cart')} (${count})`}
+              className="relative flex h-10 w-10 items-center justify-center rounded-full text-bordeaux transition-colors duration-fast hover:bg-bordeaux/10 max-[399px]:h-9 max-[399px]:w-9"
+            >
+              <span key={bump} className={bump ? 'animate-bump' : undefined}>
+                <Icon name="bag" />
+              </span>
+              <AnimatePresence>
+                {shownCount > 0 && (
+                  <motion.span
+                    key={shownCount}
+                    initial={{ scale: 0.4 }}
+                    animate={{ scale: 1 }}
+                    className="absolute end-0.5 top-0.5 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-bordeaux px-1 text-[10px] font-bold text-ivory"
+                  >
+                    {shownCount}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </Link>
+          </div>
         </div>
-      </div>
+      </header>
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -156,11 +166,11 @@ export function Header() {
             }}
           >
             <motion.aside
-              initial={{ x: lang === 'ar' ? 320 : -320 }}
+              initial={{ x: lang === 'ar' ? '100%' : '-100%' }}
               animate={{ x: 0 }}
-              exit={{ x: lang === 'ar' ? 320 : -320 }}
+              exit={{ x: lang === 'ar' ? '100%' : '-100%' }}
               transition={{ type: 'tween', duration: 0.22 }}
-              className="h-full w-[85%] max-w-sm overflow-y-auto bg-ivory p-5 shadow-2xl"
+              className="absolute inset-y-0 start-0 h-dvh w-[85%] max-w-sm overflow-y-auto overscroll-contain bg-ivory p-5 shadow-2xl"
               role="dialog"
               aria-modal="true"
               aria-label={t('nav.menu')}
@@ -189,13 +199,13 @@ export function Header() {
                 {[
                   ...links.map((l) => ({ to: l.to, end: l.end, label: l.label })),
                   { to: '/favorites', end: false, label: t('nav.favorites') },
-                  { to: user ? '/account' : '/login', end: false, label: user ? t('nav.account') : t('auth.login') },
-                  ...(user ? [] : [{ to: '/register', end: false, label: t('auth.signup_short') }]),
+                  ...(user ? [{ to: '/account', end: false, label: t('nav.account') }] : []),
                 ].map((l, i) => (
                   <NavLink
                     key={l.to + l.label}
                     to={l.to}
                     end={l.end}
+                    onClick={() => setMenu(false)}
                     style={{ animationDelay: `calc(120ms + ${staggerDelay(i)})` }}
                     className="animate-rise border-b border-bordeaux/10 py-3.5 text-base font-medium text-ink"
                   >
@@ -210,6 +220,6 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

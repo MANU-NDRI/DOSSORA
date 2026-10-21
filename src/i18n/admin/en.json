@@ -18,6 +18,8 @@
     "published": "Published",
     "active": "Active",
     "hidden": "hidden",
+    "parent_category": "Parent category",
+    "main_category": "Main category",
     "slug_hint": "Leave empty to generate automatically.",
     "search": "Search…",
     "search_orders": "Order no., name, email…",
@@ -48,7 +50,7 @@
     "slug": "Slug (URL)",
     "replace_image": "Replace image",
     "uploading": "Uploading…",
-    "category_hide_hint": "Hide a category with the “Published” setting. Permanent deletion is disabled to preserve linked products."
+    "category_hide_hint": "Hide a category with the “Published” setting. You can also choose a parent category to create a subcategory. Permanent deletion is disabled to preserve linked products."
   },
   "dash": {
     "orders_today": "Orders today",

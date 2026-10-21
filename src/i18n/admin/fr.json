@@ -18,6 +18,8 @@
     "published": "Publié",
     "active": "Actif",
     "hidden": "masqué",
+    "parent_category": "Catégorie parente",
+    "main_category": "Catégorie principale",
     "slug_hint": "Laissez vide pour générer automatiquement.",
     "search": "Rechercher…",
     "search_orders": "N° commande, nom, e-mail…",
@@ -48,7 +50,7 @@
     "slug": "Slug (URL)",
     "replace_image": "Remplacer l’image",
     "uploading": "Envoi en cours…",
-    "category_hide_hint": "Masquez une catégorie avec le réglage « Publiée ». La suppression définitive est désactivée pour préserver les produits associés."
+    "category_hide_hint": "Masquez une catégorie avec le réglage « Publiée ». Vous pouvez aussi choisir une catégorie parente pour créer une sous-catégorie. La suppression définitive est désactivée pour préserver les produits associés."
   },
   "dash": {
     "orders_today": "Commandes aujourd’hui",

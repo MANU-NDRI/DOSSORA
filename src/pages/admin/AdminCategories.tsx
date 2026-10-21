@@ -8,6 +8,21 @@ export default function AdminCategories() {
     { name: 'name_fr', label: `${t('admin.name')} (FR)`, type: 'text', required: true, half: true },
     { name: 'name_en', label: `${t('admin.name')} (EN)`, type: 'text', half: true },
     { name: 'name_ar', label: `${t('admin.name')} (AR)`, type: 'text', half: true },
+    {
+      name: 'parent_id',
+      label: t('admin.parent_category'),
+      type: 'select',
+      half: true,
+      options: (rows, current) => [
+        { value: '', label: t('admin.main_category') },
+        ...rows
+          .filter((row) => row.parent_id == null && row.id !== current.id)
+          .map((row) => ({
+            value: String(row.id),
+            label: `${String(row.name_fr)}${row.is_published ? '' : ` · ${t('admin.hidden')}`}`,
+          })),
+      ],
+    },
     { name: 'slug', label: t('admin.slug'), type: 'text', half: true, hint: t('admin.slug_hint') },
     { name: 'description_fr', label: `${t('admin.description')} (FR)`, type: 'textarea' },
     { name: 'description_en', label: `${t('admin.description')} (EN)`, type: 'textarea' },
@@ -26,10 +41,10 @@ export default function AdminCategories() {
       orderBy="sort_order"
       imageFolder="categories"
       cache="categories"
-      defaults={{ name_fr: '', name_en: '', name_ar: '', slug: '', sort_order: 0, is_published: true, image_url: '' }}
+      defaults={{ name_fr: '', name_en: '', name_ar: '', parent_id: null, slug: '', sort_order: 0, is_published: true, image_url: '' }}
       beforeSave={(r) => ({ ...r, slug: slugify(String(r.slug || r.name_fr)) })}
       renderRow={(r) => (
-        <div className="flex items-center gap-3">
+        <div className={`flex items-center gap-3 ${r.parent_id ? 'ml-5 border-l-2 border-gold pl-3' : ''}`}>
           <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-ivory-dark">
             {r.image_url ? <img src={String(r.image_url)} alt="" className="h-full w-full object-cover" /> : null}
           </div>

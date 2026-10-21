@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { useT } from '@/i18n';
 import { DURATION, EASE } from '@/lib/motion';
 
-export function Logo({ light = false, tagline = false }: { light?: boolean; tagline?: boolean }) {
+export function Logo({ light = false, tagline = false, compact = false }: { light?: boolean; tagline?: boolean; compact?: boolean }) {
   const { t } = useT();
   return (
-    <Link to="/" className="inline-flex flex-col leading-none" aria-label="DOSSORA">
+    <Link to="/" className={`inline-flex flex-col leading-none ${compact ? 'shrink-0' : ''}`} aria-label="DOSSORA">
       <span
-        className={`font-display text-2xl font-bold tracking-[0.28em] sm:text-3xl md:text-2xl lg:text-3xl ${light ? 'text-ivory' : 'text-bordeaux'}`}
+        className={`font-display ${compact ? 'text-lg tracking-[0.18em] min-[400px]:text-2xl min-[400px]:tracking-[0.28em]' : 'text-2xl tracking-[0.28em]'} font-bold sm:text-3xl md:text-2xl lg:text-3xl ${light ? 'text-ivory' : 'text-bordeaux'}`}
         dir="ltr"
       >
         DOSSORA
