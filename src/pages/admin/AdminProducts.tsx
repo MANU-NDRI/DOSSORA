@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { EmptyState, ErrorState, Field, Modal, PageHeader, Spinner } from '@/components/ui';
 import { ImageUpload } from '@/components/ImageUpload';
 import { Icon } from '@/components/Icon';
@@ -268,10 +269,16 @@ export default function AdminProducts() {
       <PageHeader
         title={t('admin.nav.products')}
         actions={
-          <button className="btn-primary btn-sm" onClick={() => edit(null)}>
-            <Icon name="plus" className="h-4 w-4" />
-            {t('common.add')}
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <Link className="btn-outline btn-sm" to="/admin/products/import">
+              <Icon name="upload" className="h-4 w-4" />
+              {t('productImport.open')}
+            </Link>
+            <button className="btn-primary btn-sm" onClick={() => edit(null)}>
+              <Icon name="plus" className="h-4 w-4" />
+              {t('common.add')}
+            </button>
+          </div>
         }
       />
       <input

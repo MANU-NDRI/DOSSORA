@@ -37,6 +37,7 @@ const Messages = lazy(() => import('@/pages/account/Messages'));
 
 const AdminDashboard = lazy(() => import('@/pages/admin/AdminDashboard'));
 const AdminProducts = lazy(() => import('@/pages/admin/AdminProducts'));
+const AdminProductImport = lazy(() => import('@/pages/admin/AdminProductImport'));
 const AdminCategories = lazy(() => import('@/pages/admin/AdminCategories'));
 const AdminOrders = lazy(() => import('@/pages/admin/AdminOrders'));
 const AdminInventory = lazy(() => import('@/pages/admin/AdminInventory'));
@@ -168,6 +169,7 @@ export default function App() {
         <Route index element={<AdminDashboard />} />
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="products" element={<AdminProducts />} />
+        <Route path="products/import" element={<AdminProductImport />} />
         <Route path="categories" element={<AdminCategories />} />
         <Route path="orders" element={<AdminOrders />} />
         <Route path="inventory" element={<AdminInventory />} />
